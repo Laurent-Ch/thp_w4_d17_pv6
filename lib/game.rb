@@ -11,7 +11,7 @@ class Game
     end
   end
 
-  #   This class version doesn't suit me
+  #   This lesson version doesn't suit me
   #   def kill_player(player_to_kill)
   #   @enemies.each do |i|
   #     @enemies.delete(i) if i.name == player_to_kill
@@ -20,9 +20,7 @@ class Game
   # More convenient version
   def kill_players
     enemies.each do |i|
-      if i.life_points <= 0
-        @enemies.delete(i) 
-      end
+      @enemies.delete(i) if i.life_points <= 0
     end
   end
 
@@ -32,7 +30,7 @@ class Game
 
   def show_players
     puts @human_player.show_state
-    puts "il reste #{@enemies.size} bots."
+    puts "il reste #{@enemies.size} bot(s)."
   end
 
   def menu

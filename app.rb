@@ -4,6 +4,14 @@ Bundler.require
 require_relative 'lib/game'
 require_relative 'lib/player'
 
+def continue_story
+  puts
+  print 'press any key to continue'
+  STDIN.getch
+  puts
+end
+
+def perform
 player1 = Player.new('Josiane')
 player2 = Player.new('José')
 
@@ -15,6 +23,9 @@ while player1.life_points > 0 && player2.life_points > 0
   print player1.show_state
   print player2.show_state
   puts
+
+  continue_story
+
   puts '|________________________[FIGHT!!]________________________|'
   # Round
   puts "Passons à la phase d'attaque :"
@@ -22,6 +33,9 @@ while player1.life_points > 0 && player2.life_points > 0
   break if player2.life_points <= 0
 
   player2.attacks(player1)
+
+  continue_story
 end
 
-# binding.pry
+perform
+
