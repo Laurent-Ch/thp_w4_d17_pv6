@@ -21,4 +21,21 @@ class Game
     @human_player.life_points > 0 && !@enemies.empty? ? true : false
   end
   
+  def show_players
+    puts @human_player.show_state
+    puts "il reste #{@enemies.size} bots."
+  end
+
+  def menu
+    puts 'Quelle action veux-tu effectuer ?'
+    puts 'a - chercher une meilleure arme'
+    puts 's - chercher à se soigner'
+    puts ()
+
+    puts 'attaquer un joueur en vue :'
+    @enemies.each do |i|
+      puts '#{i} - #enemy1.show_state'
+      puts '1 - #enemy2.show_state'
+  end
+
 end
