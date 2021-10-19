@@ -5,3 +5,5 @@ gem 'pry'
 gem 'rubocop'
 gem 'nokogiri'
 gem 'dotenv'
+gem 'io-console'
+
