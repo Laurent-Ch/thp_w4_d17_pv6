@@ -4,7 +4,7 @@ class Player
 
   def initialize(name_player)
     @name = name_player
-    @life_points  = 10
+    @life_points = 10
   end
 
   def show_state
@@ -13,9 +13,7 @@ class Player
 
   def gets_damage(attack_points)
     @life_points -= attack_points
-    if life_points <= 0
-      puts "le joueur #{@name} a été tué !"
-    end
+    puts "le joueur #{@name} a été tué !" if life_points <= 0
   end
 
   def attacks(target_player)
@@ -26,9 +24,8 @@ class Player
   end
 
   def compute_damage
-    return rand(1..6)
+    rand(1..6)
   end
-
 end
 
 class HumanPlayer < Player
@@ -53,27 +50,23 @@ class HumanPlayer < Player
     puts "tu as trouvé une arme de niveau #{random_weapon_barter}"
     if random_weapon_barter > @weapon_level
       @weapon_level = random_weapon_barter
-      puts "Youhou ! elle est meilleure que ton arme actuelle : tu la prends."
+      puts 'Youhou ! elle est meilleure que ton arme actuelle : tu la prends.'
     else
-      "M@*#$... elle n'est pas mieux que ton arme actuelle..."
+      "M@*#{$.}.. elle n'est pas mieux que ton arme actuelle..."
     end
   end
 
   def search_health_pack
     random_health_pack = rand(1..6)
-    case 
-    when random_health_pack == 1
+    if random_health_pack == 1
       puts "Tu n'as rien trouvé..."
-    when random_health_pack == 6
-      puts "Waow, tu as trouvé un pack de +80 points de vie !"
+    elsif random_health_pack == 6
+      puts 'Waow, tu as trouvé un pack de +80 points de vie !'
       @life_points += 80
     else
-      puts "Bravo, tu as trouvé un pack de +50 points de vie !"
+      puts 'Bravo, tu as trouvé un pack de +50 points de vie !'
       @life_points += 50
     end
-    if @life_points > 100
-      @life_points = 100
-    end
+    @life_points = 100 if @life_points > 100
   end
-
 end

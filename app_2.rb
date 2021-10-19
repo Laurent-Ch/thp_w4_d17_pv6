@@ -6,12 +6,11 @@ require_relative 'lib/player'
 
 require 'io/console'
 def continue_story
-  puts ()
-  print "press any key to continue"
+  puts
+  print 'press any key to continue'
   STDIN.getch
-  puts ()
+  puts
 end
-
 
 puts "
 ---------------------------------------------------
@@ -66,6 +65,14 @@ while player1.life_points >= 0 && (enemy1.life_points >= 0 || enemy2.life_points
   end
 
   continue_story
+
+  puts "Les autres joueurs t'attaquent !"
+  enemies.each do |enemy|
+    enemy.attacks(player1) if enemy.life_points > 0
+  end
+
+  continue_story
+
 end
 
 if player1.life_points > 0
@@ -74,4 +81,4 @@ else
   puts "Tu as échoué. Je maigris à vue d'oeil... mes forces s'amoindrissent ; c'est... bientôt la fin."
 end
 
-binding.pry
+# binding.pry
