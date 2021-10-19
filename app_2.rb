@@ -45,9 +45,9 @@ while player1.life_points >= 0 && (enemy1.life_points >= 0 || enemy2.life_points
   puts
   puts 'Attaquer un joueur en vue :'
   print '0 - '
-  puts "#{enemy1.show_state}"
-  print '1 - ' 
-  puts "#{enemy2.show_state}"
+  puts enemy1.show_state.to_s
+  print '1 - '
+  puts enemy2.show_state.to_s
   print('>')
   player_answer = gets.chomp
   possible_answers = %w[a s 0 1]

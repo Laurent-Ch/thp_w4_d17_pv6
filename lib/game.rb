@@ -11,10 +11,18 @@ class Game
     end
   end
 
-  # En travaux
-  def kill_player(player_to_kill)
-    @enemies.each do |i|
-      @enemies.delete(i) if i.name == player_to_kill
+  #   This class version doesn't suit me
+  #   def kill_player(player_to_kill)
+  #   @enemies.each do |i|
+  #     @enemies.delete(i) if i.name == player_to_kill
+  #   end
+
+  # More convenient version
+  def kill_players
+    enemies.each do |i|
+      if i.life_points <= 0
+        @enemies.delete(i) 
+      end
     end
   end
 
@@ -42,7 +50,7 @@ class Game
     end
   end
 
-  # This method ain't perfect: any other character than a or s is translated to 0, so Player0 gets attacked.
+  # This method isn't perfect: any other character than 'a' or 's' is converted into 0, so Player0 gets attacked.
   def menu_choice(user_input)
     possible_string = user_input.to_s
     possible_integer = user_input.to_i
