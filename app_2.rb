@@ -37,7 +37,7 @@ def perform
   continue_story
 
   # Fight
-  while player1.life_points >= 0 && (enemy1.life_points >= 0 || enemy2.life_points >= 0)
+  while player1.life_points > 0 && (enemy1.life_points > 0 || enemy2.life_points > 0)
     puts '|_______________[GET_READY_FOR_A_NEW_ROUND]_______________|'
     puts player1.show_state
 
