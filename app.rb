@@ -35,6 +35,7 @@ while player1.life_points > 0 && player2.life_points > 0
   player2.attacks(player1)
 
   continue_story
+  end
 end
 
 perform
